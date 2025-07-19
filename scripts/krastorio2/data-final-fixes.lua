@@ -11,29 +11,29 @@ data:extend({
         always_show_made_in = true,
         ingredients =
         {
-            {"fi_crushed_lithium_item", 10},
-            {type="fluid", name="mineral-water", amount=100}
+            {type="item",name = "fi_crushed_lithium_item", amount= 10},
+            {type="fluid", name="kr-mineral-water", amount=100}
         },
-        result = "lithium-chloride",
-        result_count = 10,
+        results = {
+          {type="item", name="kr-lithium-chloride", amount = 10}
+        },
         category = "chemistry"
     },
     {
         name = 'fu_charger_hydrogen_oxygen_recipe',
         type = 'recipe',
         category = 'el_charger_category',
-        main_product = 'hydrogen',
-        enabled = 'false',
+        main_product = 'kr-hydrogen',
+        enabled = false,
         ingredients = {
             {type="item", name="fi_materials_gold", amount=1},
             {type="fluid", name="water", amount=150},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=100},
-            {type="fluid", name="oxygen", amount=50},
+            {type="fluid", name="kr-hydrogen", amount=100},
+            {type="fluid", name="kr-oxygen", amount=50},
             {type="item", name="fi_materials_gold", amount=1, probability=0.25},
         },
-        result_count = 1,
         energy_required = 5,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -43,18 +43,17 @@ data:extend({
         name = 'fu_charger_hydrogen_oxygen_1_recipe',
         type = 'recipe',
         category = 'el_charger_category',
-        main_product = 'hydrogen',
-        enabled = 'false',
+        main_product = 'kr-hydrogen',
+        enabled = false,
         ingredients = {
             {type="item", name="fi_materials_gold", amount=1},
             {type="fluid", name="water", amount=300},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=200},
-            {type="fluid", name="oxygen", amount=100},
+            {type="fluid", name="kr-hydrogen", amount=200},
+            {type="fluid", name="kr-oxygen", amount=100},
             {type="item", name="fi_materials_gold", amount=1, probability=0.55},
         },
-        result_count = 1,
         energy_required = 5,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -64,18 +63,17 @@ data:extend({
         name = 'fu_charger_hydrogen_oxygen_2_recipe',
         type = 'recipe',
         category = 'el_charger_category',
-        main_product = 'hydrogen',
-        enabled = 'false',
+        main_product = 'kr-hydrogen',
+        enabled = false,
         ingredients = {
             {type="item", name="fi_materials_gold", amount=1},
             {type="fluid", name="water", amount=650},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=500},
-            {type="fluid", name="oxygen", amount=150},
+            {type="fluid", name="kr-hydrogen", amount=500},
+            {type="fluid", name="kr-oxygen", amount=150},
             {type="item", name="fi_materials_gold", amount=1, probability=0.85},
         },
-        result_count = 1,
         energy_required = 5,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -85,15 +83,14 @@ data:extend({
         name = 'fu_charger_hydrogen_oxygen_3_recipe',
         type = 'recipe',
         category = 'el_charger_category',
-        main_product = 'hydrogen',
-        enabled = 'false',
+        main_product = 'kr-hydrogen',
+        enabled = false,
         ingredients = {
             {type="fluid", name="water", amount=1100},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=1000},
+            {type="fluid", name="kr-hydrogen", amount=1000},
         },
-        result_count = 1,
         energy_required = 5,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -103,15 +100,14 @@ data:extend({
         name = 'fu_boiler_hydrogen_oxygen_3_recipe',
         type = 'recipe',
         category = 'fu_boiler_crafting_category',
-        main_product = 'hydrogen',
+        main_product = 'kr-hydrogen',
         enabled = false,
         ingredients = {
             {type="fluid", name="water", amount=1100},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=1000, temperature=40},
+            {type="fluid", name="kr-hydrogen", amount=1000, temperature=40},
         },
-        result_count = 1,
         energy_required = 1,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -121,16 +117,15 @@ data:extend({
         name = 'fu_boiler_hydrogen_oxygen_recipe',
         type = 'recipe',
         category = 'fu_boiler_crafting_category',
-        main_product = 'hydrogen',
+        main_product = 'kr-hydrogen',
         enabled = false,
         ingredients = {
             {type="fluid", name="water", amount=150},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=100, temperature=40},
-            {type="fluid", name="oxygen", amount=50, temperature=40}
+            {type="fluid", name="kr-hydrogen", amount=100, temperature=40},
+            {type="fluid", name="kr-oxygen", amount=50, temperature=40}
         },
-        result_count = 1,
         energy_required = 1,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -140,16 +135,15 @@ data:extend({
         name = 'fu_boiler_hydrogen_oxygen_1_recipe',
         type = 'recipe',
         category = 'fu_boiler_crafting_category',
-        main_product = 'hydrogen',
+        main_product = 'kr-hydrogen',
         enabled = false,
         ingredients = {
             {type="fluid", name="water", amount=300},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=200, temperature=40},
-            {type="fluid", name="oxygen", amount=100, temperature=40}
+            {type="fluid", name="kr-hydrogen", amount=200, temperature=40},
+            {type="fluid", name="kr-oxygen", amount=100, temperature=40}
         },
-        result_count = 1,
         energy_required = 1,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -159,16 +153,15 @@ data:extend({
         name = 'fu_boiler_hydrogen_oxygen_2_recipe',
         type = 'recipe',
         category = 'fu_boiler_crafting_category',
-        main_product = 'hydrogen',
+        main_product = 'kr-hydrogen',
         enabled = false,
         ingredients = {
             {type="fluid", name="water", amount=650},
         },
         results = {
-            {type="fluid", name="hydrogen", amount=500, temperature=40},
-            {type="fluid", name="oxygen", amount=150, temperature=40},
+            {type="fluid", name="kr-hydrogen", amount=500, temperature=40},
+            {type="fluid", name="kr-oxygen", amount=150, temperature=40},
         },
-        result_count = 1,
         energy_required = 1,
         subgroup = 'fu_item_subgroup_e',
         order = 'a-a',
@@ -181,14 +174,13 @@ data:extend({
         main_product = 'fu_protium',
         enabled = false,
         ingredients = {
-            {type="fluid", name="hydrogen", amount=100000},
+            {type="fluid", name="kr-hydrogen", amount=100000},
         },
         results = {
             {type="fluid", name="fu_protium", amount=99998},
             {type="fluid", name="fu_deuterium", amount=10},
             {type="fluid", name="fu_tritium", amount=1}
         },
-        result_count = '0.5',
         energy_required = 100,
         always_show_made_in = true,
     },
@@ -197,7 +189,7 @@ data:extend({
         type = 'recipe',
         category = 'fu_exchanger_crafting_category',
         main_product = 'steam',
-        enabled = 'false',
+        enabled = false,
         ingredients = {
             {type="fluid", name="fu_lead_fluid_hot", amount=50},
             {type="fluid", name="water", amount=1000/2},
@@ -206,7 +198,6 @@ data:extend({
             {type="fluid", name="fu_lead_fluid_cold", amount=50},
             {type="fluid", name="steam", amount=1000/2, temperature=415},
         },
-        result_count = 1,
         energy_required = 1,
         subgroup = 'fu_item_subgroup_e',
         order = 'b-a',
@@ -217,7 +208,7 @@ data:extend({
         type = 'recipe',
         category = 'fu_exchanger_crafting_category',
         main_product = 'steam',
-        enabled = 'false',
+        enabled = false,
         ingredients = {
             {type="fluid", name="fu_lead_fluid_hot", amount=100},
             {type="fluid", name="water", amount=1000/4},
@@ -226,7 +217,6 @@ data:extend({
             {type="fluid", name="fu_lead_fluid_cold", amount=100},
             {type="fluid", name="steam", amount=1000/4, temperature=975},
         },
-        result_count = 1,
         energy_required = 1,
         subgroup = 'fu_item_subgroup_e',
         order = 'b-a',
@@ -236,15 +226,14 @@ data:extend({
         name = 'fu_star_engine_cooler_7_recipe',
         type = 'recipe',
         category = 'fu_star_engine_cooler_crafting_category',
-        enabled = 'false',
+        enabled = false,
         subgroup = 'fu_star_engine_subgroup_c',
         ingredients = {
             {type="fluid", name="fu_iron_heated", amount=500},
         },
         results = {
-            {type="fluid", name="matter", amount=500},
+            {type="fluid", name="kr-matter", amount=500},
         },
-        result_count = 1,
         energy_required = 1,
     },
     {
@@ -252,14 +241,13 @@ data:extend({
         type = 'recipe',
         category = 'chemistry',
         main_product = 'fu_deuterium',
-        enabled = 'false',
+        enabled = false,
         ingredients = {
-            {type="fluid", name="heavy-water", amount=10},
+            {type="fluid", name="kr-heavy-water", amount=10},
         },
         results = {
             {type="fluid", name="fu_deuterium", amount=4},
         },
-        result_count = 1,
         energy_required = 10,
         always_show_made_in = true,
     },
@@ -268,21 +256,20 @@ data:extend({
         type = 'recipe',
         category = 'chemistry',
         main_product = 'fu_tritium',
-        enabled = 'false',
+        enabled = false,
         ingredients = {
-            {type="item", name="tritium", amount=1},
+            {type="item", name="kr-tritium", amount=1},
         },
         results = {
             {type="fluid", name="fu_tritium", amount=10},
         },
-        result_count = 1,
         energy_required = 10,
         always_show_made_in = true,
     },
     {
         name = 'fu_ki_core_recipe',
         type = 'recipe',
-        enabled = 'false',
+        enabled = false,
         category = 'crafting',
         ingredients = {
             {type="item", name="steel-plate", amount=100},
@@ -300,13 +287,12 @@ data:extend({
         results = {
             {type="item", name="fu_ki_core_item", amount=1},
         },
-        result_count = 1,
         energy_required = 60,
     },
     {
         name = 'el_water_pressure_recipe',
         type = 'recipe',
-        enabled = 'false',
+        enabled = false,
         category = 'el_special_fluid',
         icon = '__248k-Redux__/ressources/fluids/el_pressurized_water.png',
         icon_size = 64,
@@ -324,7 +310,7 @@ data:extend({
     {
         name = 'el_ceramic_recipe',
         type = 'recipe',
-        enabled = 'false',
+        enabled = false,
         category = 'crafting-with-fluid',
         ingredients = {
             {type="fluid", name="steam", amount=10},
@@ -391,7 +377,7 @@ table.insert(data.raw.technology["fu_ki_plus_2_tech"].unit.ingredients, {"fi_ki_
 table.insert(data.raw.technology["fu_ki_plus_2_tech"].unit.ingredients, {"fu_ki_science", 1})
 --]]
 
-table.insert(data.raw["generator-equipment"]["fi_train_equipment_generator_item"].categories,"vehicle-equipment")
+table.insert(data.raw["generator-equipment"]["fi_train_equipment_generator_item"].categories,"kr-vehicle")
 
 if (config("krastorio_endgame")) then
     table.insert(data.raw.recipe["kr-intergalactic-transceiver"].ingredients ,{type="item", name="gr_materials_stack_down_item", amount=40}) 
@@ -404,8 +390,8 @@ table.insert(data.raw.lab['kr-singularity-lab'].inputs, 'fu_space_probe_science_
 table.insert(data.raw.lab['kr-singularity-lab'].inputs, 'fi_ki_science')
 table.insert(data.raw.lab['kr-singularity-lab'].inputs, 'fu_ki_science')
 
-table.insert(data.raw.lab['biusart-lab'].inputs, 'fu_space_probe_science_item')
-table.insert(data.raw.lab['biusart-lab'].inputs, 'fi_ki_science')
-table.insert(data.raw.lab['biusart-lab'].inputs, 'fu_ki_science')
+table.insert(data.raw.lab['kr-advanced-lab'].inputs, 'fu_space_probe_science_item')
+table.insert(data.raw.lab['kr-advanced-lab'].inputs, 'fi_ki_science')
+table.insert(data.raw.lab['kr-advanced-lab'].inputs, 'fu_ki_science')
 
 data.raw.tool["fu_space_probe_science_item"].icon = "__248k-Redux__/ressources/fusion/fu_space_probe/fu_space_probe_science_item_krastorio.png"
