@@ -19,11 +19,6 @@ local function add_to_recipe(recipe, item, item_amount)
     if data.raw.recipe[recipe].ingredients then
         add_ingredient(data.raw.recipe[recipe].ingredients, item, item_amount )
     end
-
-    if data.raw.recipe[recipe].normal and data.raw.recipe[recipe].expensive then
-        add_ingredient(data.raw.recipe[recipe].normal.ingredients, item, item_amount )
-        add_ingredient(data.raw.recipe[recipe].expensive.ingredients, item, item_amount )
-    end
 end
 
 local function add_to_recipes(table_in)
@@ -252,7 +247,7 @@ building_table = {
     {"kr-filtration-plant",             "el_materials_ALK", 10},
     --{"kr-electrolysis-plant",           "el_materials_ALK", 10},
     --{"kr-electrolysis-plant",           "el_materials_ALK", 10},
-    {"kr-fluid-burner",                 "el_materials_ALK", 2},
+    {"kr-flare-stack",                 "el_materials_ALK", 2},
     {"kr-atmospheric-condensor",        "el_materials_ALK", 6},
     {"el_solar_recipe",                   "solar-panel", 2},
     {"solar-panel",                     "el_materials_ALK", 6},
@@ -261,7 +256,7 @@ building_table = {
     {"kr-fuel-refinery",                "el_materials_ALK", 4},
     {"kr-gas-power-station",            "el_materials_ALK", 10},
 
-    {"buisart-lab",                     "fi_materials_NFK", 10},
+    {"kr-singularity-lab",              "fi_materials_NFK", 10},
     {"kr-electric-mining-drill-mk2",    "fi_materials_GFK", 6},
     {"kr-research-server",              "fi_materials_NFK", 8},
     {"kr-research-server",              "fi_materials_GFK", 8},
@@ -283,9 +278,9 @@ building_table = {
     {"kr-advanced-furnace",             "fu_materials_KFK", 6},
     {"kr-advanced-chemical-plant",      "fu_materials_KFK", 6},
     {"kr-matter-plant",                 "fu_materials_KFK", 12},
-    {"kr-matter-assembler",             "fu_materials_KFK", 8},
+    {"kr-matter-associator",             "fu_materials_KFK", 8},
     {"kr-stabilizer-charging-station",  "fu_materials_KFK", 6},
-    {"kr-large-roboport",               "fi_robo_port_item", 1},
+    {"kr-big-roboport",               "fi_robo_port_item", 1},
     {"kr-antimatter-reactor",           "fu_tokamak_reactor_item", 1},
     {"kr-intergalactic-transceiver",    "fu_tokamak_reactor_item", 1},
     {"kr-intergalactic-transceiver",    "gr_materials_magnet", 100},
@@ -303,27 +298,27 @@ item_table = {
     {"speed-module-3",          "fi_modules_core_item", 3},
     {"effectivity-module-2",    "fi_modules_core_item", 1},
     {"effectivity-module-3",    "fi_modules_core_item", 3},
-    {"ai-core",                 "fu_materials_energy_crystal", 1},
-    {"fusion-reactor-equipment","fu_materials_energy_crystal", 25},
-    {"imersium-plate",          "fi_crushed_crystal_item", 4},
-    {"lithium-sulfur-battery",  "el_lithium_battery", 1},
-    {"empty-dt-fuel",           "fu_materials_KFK", 2},
-    {"fu_empty_container_recipe","empty-dt-fuel", 1},
-    {"energy-control-unit",     "fu_materials_energy_crystal", 1},
-    {"matter-stabilizer",       "fu_materials_empty_container", 1},
+    {"kr-ai-core",                 "fu_materials_energy_crystal", 1},
+    {"kr-fusion-reactor-equipment","fu_materials_energy_crystal", 25},
+    {"kr-imersium-plate",          "fi_crushed_crystal_item", 4},
+    {"kr-lithium-sulfur-battery",  "el_lithium_battery", 1},
+    {"kr-empty-dt-fuel-cell",           "fu_materials_KFK", 2},
+    {"fu_empty_container_recipe","kr-empty-dt-fuel-cell", 1},
+    {"kr-energy-control-unit",     "fu_materials_energy_crystal", 1},
+    {"kr-matter-stabilizer",       "fu_materials_empty_container", 1},
 
     --military
     {"energy-shield-equipment", "el_energy_crystal_item", 5},
     {"energy-shield-mk2-equipment","fi_energy_crystal_item", 5},
-    {"energy-shield-mk3-equipment","fu_materials_energy_crystal", 5},
+    {"kr-energy-shield-mk3-equipment","fu_materials_energy_crystal", 5},
     {"battery-equipment",       "el_lithium_battery", 1},
 
     --science
     {"chemical-science-pack",        "el_energy_crystal_item",3},
     {"production-science-pack",      "fi_materials_titan",  1},
     {"utility-science-pack",         "fi_materials_neodym", 1},
-    {"matter-tech-card",             "fu_tech_sign_item", 5},
-    {"singularity-tech-card",        "gr_materials_magnet", 1},
+    {"kr-matter-tech-card",             "fu_tech_sign_item", 5},
+    {"kr-singularity-tech-card",        "gr_materials_magnet", 1},
 }
 
 --[TECH]
@@ -345,7 +340,7 @@ tech_table = {
     {"fu_energy_tech",              "kr-fusion-energy"},
     {"kr-fusion-energy",            "fu_KFK_tech"},
     {"kr-ai-core",                  "fu_crystal_tech"},
-    {"fusion-reactor-equipment",    "fu_crystal_tech"},
+    {"kr-fusion-reactor-equipment",    "fu_crystal_tech"},
     {"kr-imersium-processing",      "fu_crystal_tech"},
     {"kr-lithium-sulfur-battery",   "el_lithium_tech"},
     {"kr-matter-tech-card",         "fu_energy_tech"},
@@ -381,7 +376,7 @@ tech_table = {
     {"battery-equipment",           "el_energy_tech"},
     {"kr-imersite-solar-panel-equipment","fu_energy_tech"},
     {"kr-tesla-coil",               "fi_energy_tech"},
-    {"kr-portable-generator",       "fi_energy_tech"},
+    {"kr-portable-generator-equipment",       "fi_energy_tech"},
     {"battery-mk2-equipment",       "fi_energy_tech"},
 
     --energy tech
@@ -423,8 +418,8 @@ pre_tech_table = {
 data.raw["solar-panel"]["el_solar_entity"].production = "220kW"
 data.raw["solar-panel"]["kr-advanced-solar-panel"].production = "480kW"
 data.raw.item["el_materials_ALK"].stack_size = 200
-data.raw.recipe["dt-fuel"].ingredients = {
-    {type="item", name="empty-dt-fuel", amount=1}, 
+data.raw.recipe["kr-dt-fuel-cell"].ingredients = {
+    {type="item", name="kr-empty-dt-fuel-cell", amount=1}, 
     {type="fluid", name="fu_deuterium", amount=6}, 
     {type="fluid", name="fu_tritium", amount=6}
 }
@@ -441,12 +436,12 @@ data:extend({
     {
         name = 'fi_arc_glass_recipe',
         type = 'recipe',
-        enabled = 'false',
+        enabled = false,
         category = 'el_arc_furnace_category',
         ingredients = {
-            {type="item", name="glass", amount=3},
-            {type="item", name="quartz", amount=1},
-            {type="item", name="coke", amount=1}
+            {type="item", name="kr-glass", amount=3},
+            {type="item", name="kr-quartz", amount=1},
+            {type="item", name="kr-coke", amount=1}
         },
         results = {
             {type="fluid", name="fi_arc_glass", amount=300},
@@ -460,14 +455,13 @@ data:extend({
         type = 'recipe',
         category = 'chemistry',
         main_product = 'fu_tritium',
-        enabled = 'false',
+        enabled = false,
         ingredients = {
-            {type="item", name="tritium", amount=1},
+            {type="item", name="kr-tritium", amount=1},
         },
         results = {
             {type="fluid", name="fu_tritium", amount=3},
         },
-        result_count = 1,
         energy_required = 1,
         always_show_made_in = true,
     },
@@ -476,15 +470,14 @@ data:extend({
         type = 'recipe',
         category = 'chemistry',
         main_product = 'fu_deuterium',
-        enabled = 'false',
+        enabled = false,
         ingredients = {
-            {type="fluid", name="heavy-water", amount=10},
-            {type="item", name="improved-pollution-filter", amount=1},
+            {type="fluid", name="kr-heavy-water", amount=10},
+            {type="item", name="kr-pollution-filter", amount=1},
         },
         results = {
             {type="fluid", name="fu_deuterium", amount=3},
         },
-        result_count = 1,
         energy_required = 10,
         always_show_made_in = true,
     },
@@ -492,15 +485,14 @@ data:extend({
         name = 'fu_star_engine_cooler_7_recipe',
         type = 'recipe',
         category = 'fu_star_engine_cooler_crafting_category',
-        enabled = 'false',
+        enabled = false,
         subgroup = 'fu_star_engine_subgroup_c',
         ingredients = {
             {type="fluid", name="fu_iron_heated", amount=500},
         },
         results = {
-            {type="fluid", name="matter", amount=100},
+            {type="fluid", name="kr-matter", amount=100},
         },
-        result_count = 1,
         energy_required = 1,
     },
 })
@@ -521,31 +513,31 @@ add_tech_cards(change_table_index(add_card_table, tech_structure))
 remove_pre_techs(change_table_index(pre_tech_table, tech_structure))
 remove_tech_cards(change_table_index(remove_card_table, card_structure))
 
-add_cards_to_tree(del_doubles(walk_techs("fu_star_engine_tech", break_con)), "matter-tech-card")
-add_cards_to_tree(del_doubles(walk_techs("gr_stage_tech", break_con)), "advanced-tech-card")
-add_cards_to_tree(del_doubles(walk_techs("gr_charger_tech", break_con)), "singularity-tech-card")
-add_cards_to_tree(del_doubles(walk_techs("gr_compact_fusion_tech", break_con)), "singularity-tech-card")
+add_cards_to_tree(del_doubles(walk_techs("fu_star_engine_tech", break_con)), "kr-matter-tech-card")
+add_cards_to_tree(del_doubles(walk_techs("gr_stage_tech", break_con)), "kr-advanced-tech-card")
+add_cards_to_tree(del_doubles(walk_techs("gr_charger_tech", break_con)), "kr-singularity-tech-card")
+add_cards_to_tree(del_doubles(walk_techs("gr_compact_fusion_tech", break_con)), "kr-singularity-tech-card")
 add_cards_to_tree(del_doubles(walk_techs("kr-singularity-tech-card", break_con)), "fu_space_probe_science_item")
 
 if mods["RealisticFusionPower"] then
     
-    data.raw.recipe["fu_tokamak_reactor_recipe"].ingredients = {
-        {'fu_materials_magnet',200},
-        {'fu_materials_TIM',400},
-        {'fu_materials_KFK',400},
-        {'concrete',500},
-        {'fu_materials_energy_crystal',200},
-        {'pump',80},
-        {'processing-unit',500},
-        {'fu_tech_sign_item',2000},
-    }
+  data.raw.recipe["fu_tokamak_reactor_recipe"].ingredients = {
+    {type="item",name = 'fu_materials_magnet', amount = 200},
+    {type="item",name = 'fu_materials_TIM', amount = 400},
+    {type="item",name = 'fu_materials_KFK', amount = 400},
+    {type="item",name = 'concrete', amount = 500},
+    {type="item",name = 'fu_materials_energy_crystal', amount = 200},
+    {type="item",name = 'pump', amount = 80},
+    {type="item",name = 'processing-unit', amount = 500},
+    {type="item",name = 'fu_tech_sign_item', amount = 2000},
+  }
 
-    data.raw.recipe["fu_empty_container_recipe"].ingredients = {
-        {type="item", name="fu_materials_magnet", amount=2},
-        {type="item", name="fu_materials_KFK", amount=6},
-        {type="item", name="fu_materials_energy_crystal", amount=2},
-        {type="item", name="fu_tech_sign_item", amount=10},
-    }
+  data.raw.recipe["fu_empty_container_recipe"].ingredients = {
+    {type="item", name="fu_materials_magnet", amount=2},
+    {type="item", name="fu_materials_KFK", amount=6},
+    {type="item", name="fu_materials_energy_crystal", amount=2},
+    {type="item", name="fu_tech_sign_item", amount=10},
+  }
 
 end
 
