@@ -46,9 +46,6 @@ data:extend({
         corpse = 'small-remnants',
         collision_box = {{-3.4,-3.4},{3.4,3.4}},
         selection_box = {{-3.5,-3.5},{3.5,3.5}},
-        circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
-		circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
-		circuit_wire_max_distance = 20,
         pictures = {
             picture = {
                 filename = sprite('entity_picture.png'),
@@ -111,5 +108,15 @@ data:extend({
         },
         window_bounding_box = {{0,0},{1,1}},
         map_color = tank_color,
-    },
+    circuit_wire_max_distance = 20,
+    circuit_connector = circuit_connector_definitions.create_vector(
+      universal_connector_template, 
+      {
+        { variation =  2, main_offset = util.by_pixel( 50.25, -126.25), shadow_offset = util.by_pixel( 50.25, -126.25), show_shadow = true },
+        { variation =  2, main_offset = util.by_pixel( 50.25, -126.25), shadow_offset = util.by_pixel( 50.25, -126.25), show_shadow = true },
+        { variation =  2, main_offset = util.by_pixel( 50.25, -126.25), shadow_offset = util.by_pixel( 50.25, -126.25), show_shadow = true },
+        { variation =  2, main_offset = util.by_pixel( 50.25, -126.25), shadow_offset = util.by_pixel( 50.25, -126.25), show_shadow = true },
+      }
+    )
+      },
 })
