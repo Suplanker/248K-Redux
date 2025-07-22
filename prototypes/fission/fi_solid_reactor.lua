@@ -95,5 +95,10 @@ data:extend({
             sound = { filename ='__base__/sound/nuclear-reactor-1.ogg'},
             apparent_volume = 2.5,
         },
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    circuit_connector = circuit_connector_definitions.create_single(
+      universal_connector_template, 
+        { variation = 26, main_offset = util.by_pixel(-83.75,  11.875), shadow_offset = util.by_pixel(-83.75,  11.875), show_shadow = true }
+    )
     },
 })

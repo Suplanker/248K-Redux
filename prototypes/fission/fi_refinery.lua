@@ -207,5 +207,15 @@ data:extend({
             sound = { filename ='__base__/sound/electric-mining-drill.ogg'},
             apparent_volume = 2.7,
         },
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    circuit_connector = circuit_connector_definitions.create_vector(
+      universal_connector_template, 
+      {
+        { variation =  0, main_offset = util.by_pixel( 31.125, -5.125), shadow_offset = util.by_pixel( 31.125, -5.125), show_shadow = true },
+        { variation =  0, main_offset = util.by_pixel( 31.125, -5.125), shadow_offset = util.by_pixel( 31.125, -5.125), show_shadow = true },
+        { variation =  0, main_offset = util.by_pixel( 31.125, -5.125), shadow_offset = util.by_pixel( 31.125, -5.125), show_shadow = true },
+        { variation =  0, main_offset = util.by_pixel( 31.125, -5.125), shadow_offset = util.by_pixel( 31.125, -5.125), show_shadow = true },
+      }
+    )
     },
 })

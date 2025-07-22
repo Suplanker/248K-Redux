@@ -59,7 +59,6 @@ data:extend({
         energy_usage = '4MW',
         charge_approach_distance = 2,
         charging_energy = '4MW',
-        recharge_minimum = '1MW',
         charging_station_count = 8, 
         construction_radius = 70,
         logistics_radius = 70,
@@ -123,55 +122,11 @@ data:extend({
 			scale = 1.5,
 			animation_speed = 0.5
         },
-
-        circuit_wire_connection_point = {
-            wire = {
-                copper = {0, 0},
-                green = {0, 0},
-                red = {0, 0}
-            },
-            shadow = {
-                copper = {0, 0},
-                green = {0, 0},
-                red = {0, 0}
-            }
-        },
-		circuit_connector_sprites = {
-            led_red = {
-                filename = "__248k-Redux__/ressources/64x64_empty.png",
-                width = 64,
-                height = 64,
-                shift = {0, 0},
-                intensity = 0.3,
-                size = 1
-            },
-            led_green = {
-                filename = "__248k-Redux__/ressources/64x64_empty.png",
-                width = 64,
-                height = 64,
-                shift = {0, 0},
-                intensity = 0.3,
-                size = 1
-            },
-            led_blue = {
-                filename = "__248k-Redux__/ressources/64x64_empty.png",
-                width = 64,
-                height = 64,
-                shift = {0, 0},
-                intensity = 0.3,
-                size = 1
-            },
-            led_light = {
-                filename = "__248k-Redux__/ressources/64x64_empty.png",
-                width = 64,
-                height = 64,
-                shift = {0, 0},
-                intensity = 0.3,
-                size = 1,
-                blend_mode = "additive",
-            },
-        },
-		circuit_wire_max_distance = 20,
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    circuit_connector = circuit_connector_definitions.create_single(
+      universal_connector_template, 
+        { variation = 26, main_offset = util.by_pixel( 34.125, -23.25), shadow_offset = util.by_pixel( 34.125, -23.25), show_shadow = true }
+    )
     },
     --charger
     {
@@ -198,7 +153,6 @@ data:extend({
         energy_usage = '4MW',
         charge_approach_distance = 2,
         charging_energy = '12MW',
-        recharge_minimum = '1MW',
         charging_station_count = 12, 
         construction_radius = 1,
         logistics_radius = 1,
@@ -260,9 +214,5 @@ data:extend({
 			scale = 1.5,
 			animation_speed = 0.5
         }
-        
-
-        
-        
     },
 })
