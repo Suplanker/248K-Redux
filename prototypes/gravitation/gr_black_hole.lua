@@ -43,7 +43,12 @@ data:extend({
             mining_time = 1,
             result = 'gr_black_hole_item',
         },
-        integration_patch_render_layer = "higher-object-under"
+        integration_patch_render_layer = "higher-object-under",
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    circuit_connector = circuit_connector_definitions.create_single(
+      universal_connector_template,
+        { variation = 25, main_offset = util.by_pixel(-127.375, -18.25), shadow_offset = util.by_pixel(-127.375, -18.25), show_shadow = true }
+    )
     },
     {
         name = "gr_black_hole_energy_entity",

@@ -102,5 +102,15 @@ data:extend({
             idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
             apparent_volume = 0.7,
         },
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    circuit_connector = circuit_connector_definitions.create_vector(
+      universal_connector_template,
+      {
+        { variation = 27, main_offset = util.by_pixel( 39.125,  23.25), shadow_offset = util.by_pixel( 39.125,  23.25), show_shadow = true },
+        { variation = 27, main_offset = util.by_pixel( 39.125,  23.25), shadow_offset = util.by_pixel( 39.125,  23.25), show_shadow = true },
+        { variation = 27, main_offset = util.by_pixel( 39.125,  23.25), shadow_offset = util.by_pixel( 39.125,  23.25), show_shadow = true },
+        { variation = 27, main_offset = util.by_pixel( 39.125,  23.25), shadow_offset = util.by_pixel( 39.125,  23.25), show_shadow = true },
+      }
+    )
     },
 })
